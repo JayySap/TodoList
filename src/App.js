@@ -27,7 +27,7 @@ function App() {
           setFilteredTodos(todos);
           break;
     }
-  })
+  },[status, todos])
 
   useEffect(() => {
     filterHandler();
