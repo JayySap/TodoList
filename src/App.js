@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useCallback } from 'react';
 import './App.css';
 //Importing Components
 import Form from './components/Form';
@@ -15,7 +15,7 @@ function App() {
   // Use effect
 
   // Functions
-  const filterHandler = () => {
+  const filterHandler = useCallback(() => {
     switch(status){
       case 'completed':
         setFilteredTodos(todos.filter(todo => todo.completed === true));
@@ -27,7 +27,7 @@ function App() {
           setFilteredTodos(todos);
           break;
     }
-  }
+  })
 
   useEffect(() => {
     filterHandler();
